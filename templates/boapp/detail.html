@@ -1,0 +1,33 @@
+{% include 'base.html' %}
+<style>
+    l{
+    color:blue;
+    font-size=30px;
+
+    }
+</style>
+
+
+<title>Bank Of London </title>
+
+<body>
+LoggedIn as::{{request.user.username}}
+
+<h1>Transaction Details</h1>
+<p style="text-align:center;">
+Account_Number::<l>{{j.number}}</l><br><br>
+Name::<l>{{j.name}}</l><br><br>
+Transaction_Date::<l>{{j.date}}</l><br><br>
+Withdraw_Amount::<l>{{j.withdraw}}</l><br>
+Deposite_Amount::<l>{{j.deposite}}</l><br><br>
+Balance_Available::<l>{{j.balance}}</l><br>
+</p>
+<div style="text-align:center;">
+ <button onclick="myfunction()">print</button>
+<script>
+function myfunction(){
+window.print()
+}
+</script>
+</div>
+</body>

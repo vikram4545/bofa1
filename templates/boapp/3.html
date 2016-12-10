@@ -1,0 +1,96 @@
+{% include 'base.html' %}
+{% load static %}
+<title>Bank Of America/transactions</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+    var myapp = angular.module('mymodule',[]);
+
+    myapp.controller("mycontroller",function($scope, $http){
+    $scope.x = "srdcgfvbhn"
+    $http({
+        method: 'GET',
+        url:'/api/number/'
+    }).then(function(response){
+        $scope.y = response.data ;
+    });
+    });
+    myapp.config(function($interpolateProvider) {
+    $interpolateProvider.startSymbol('{$');
+    $interpolateProvider.endSymbol('$}');
+});
+</script>
+
+<style>
+table {
+    padding:5px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    margin:20px;
+    width:90%;
+    float:right;
+    
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align:center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+<body ng-app = "mymodule">
+
+
+Account Number({{number1.anumber}})<br>
+Name({{number1.name }})<hr>
+<div style="text-align:center"><h2>Transactions<h2></div>
+
+<div>
+
+<table>
+<tr>
+
+<th>Date</th>
+<th>Deposite</th>
+<th>Withdraw</th>
+<th>Balance</th>
+</tr>
+
+{%for g in holder%}
+<tr>
+
+<td><a href="/bofa/delete/{{g.id}}/">{{g.date}}</a></td>
+<td>{{g.deposite}}</td>
+<td>{{g.withdraw}}</td>
+<td>{{g.balance}}</td>
+
+</tr>
+{%endfor%}
+</table>
+</div>
+<div style="text-align:right;margin:10px">AvailableBalance({{number1.balance}})</div>
+
+<div style="text-align:center">
+<button onclick="myfunction()">print</button>
+<script>
+function myfunction(){
+window.print()
+}
+</script>
+</div>
+
+<form method="post" >
+    {{s}}
+    {% csrf_token%}
+    <input type="submit">
+</form>
+
+
+</div>
+
+</body>
+

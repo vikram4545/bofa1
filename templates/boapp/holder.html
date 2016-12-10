@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <style>
+        l{
+
+        color:red;
+        }
+    </style>
+</head>
+<body>
+LoggedIn as::{{request.user.username}}
+
+
+<h1 style="text-align:center">Customer Details</h1>
+<div style="text-align:center">
+Account_Number::<l>{{i.anumber}}</l><br><br>
+Customer_Name::<l>{{i.name}}</l><br><br>
+Balance_Available::<l style="font-size:50px;">${{i.balance}}</l><br><br>
+Id_Proof::<l>{{i.identityPr}}</l><br><br>
+IdDocument::<a href = "/media/{{i.upload}}/">Proof of Identity</a><br><br>
+AdressDocument::<l>{{i.address}}</l><br><br>
+ProofofAdress::<a href = "/media/{{i.adressp}}/">Proof Of Address</a><br><br>
+    Date of Account::{{i.date}}
+</div>
+<a href= "/bofa/delete2/{{i.id}}">Update</a>
+</body>
+</html>

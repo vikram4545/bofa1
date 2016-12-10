@@ -1,0 +1,14 @@
+{% include 'base.html' %}
+<div style="background-color:black;color:white;padding:30px;">
+<form method="post" action="/bofa/" enctype="multipart/form-data">
+<p><l>Employer_Id::{{form.anumber}}</l><br><br><br><br>
+    HolderName::{{form.name}}<br><br><br><br>
+    BalanceAvail::{{form.balance}}<br><br><br><br>
+    Identity_Proof::{{form.identityPr}}<br><br><br><br>
+    Upload_Proof_Doc::{{form.upload}}</p>{%csrf_token%}<br><br><br>
+    Upload_Adress_Proof::{{form.adressp}}</p>{%csrf_token%}<br><br><br>
+    Holder_Adress::<br>
+    {{form.address}}</p>{%csrf_token%}<br><br><br>
+    <input type="submit" value="Create Account">
+</form>
+    </div>

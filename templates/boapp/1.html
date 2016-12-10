@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "base.html" %}
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+</head>
+<body>
+
+
+
+<div style="padding:30px;">
+
+<form method="post" action="/bofa/update/">
+Account_Number::{{form.number}}<br><br>
+AccountHolder_Name::{{form.name}}<br><br>
+    <input type="submit">
+    <div style="display:none;">
+    <l>{{form.deposite}}</l>
+    <l>{{form.withdraw}}</l>
+    </div>
+        {%csrf_token%}
+
+</form>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mymodule">
+{% include "base.html" %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+$(document).ready(function(){
+    $("#fli").click(function(){
+        $("#pane").slideToggle("slow");
+    });
+});
+</script>
+
+<style>
+#panel, #flip,#pane, #fli{
+    padding: 5px;
+    width:150px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+}
+
+#panel, #pane {
+    padding: 50px;
+    width:50%;
+    display: none;
+}
+</style>
+</head>
+
+
+<body>
+
+<div style="margin:50px;">
+<div id="flip">Current Customer</div>
+<div id="panel"><form method="post" action="">
+    Account_Number::{{form.anumber}}
+    {% csrf_token%}
+    <input type="submit" value="GO">
+</form></div>
+    </div>
+<div style="margin:50px;">
+<div id="fli" >Future Customer</div>
+<div id="pane"><a href="/bofa/">Add New Customer</a></div>
+</div>
+
+
+</body>
+
+</html>

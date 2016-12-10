@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app= "mymodule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="Scripts.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="Scripts.js"></script>
+</head>
+<body  ng-controller = "mycontroller">
+{$ message $}
+
+<div>
+    <input type="number" step="1" min="0" max="4" ng-model="limit"/>
+
+    
+<table>
+        <thead>
+        <tr>
+            <th>Technologies</th>
+            <th>Likes</th>
+            <th>Dislikes</th>
+            <th>L or D</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat = "technology in technologies">
+            <td>{{technology.id }}</td>
+            <td>{{technology.name }}</td>
+            <td>{{technology.address}}</td>
+            <td><input type="button" value="Like" ng-click="incl(technology)">
+            <input type="button" value="Dislike" ng-click="incd(technology)"></td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+</body>
+</html>

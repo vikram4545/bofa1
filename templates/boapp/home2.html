@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="static\admin\js\kil.js"></script>
+    <style>
+    l2{
+    color:red;
+    size:20px;
+
+    }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width:99%;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a  {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: red;
+}
+</style>
+</head>
+<body>
+<div><h1>Bank of London</h1></div>
+
+<ul>
+<li><a href="/bofa/home/">Home</a></li> |
+
+<li><a href="/bofa/update/">Deposite OR Withdraw</a></li> |
+
+
+{% for i in number1%}
+{% if i.anumber == h%}
+
+<li><a href="/bofa/transactions/{{i.id}}/" id="demo" >Transactions</a></li> |
+{% endif %}
+{% endfor %}
+{{employer.name1}}
+
+{% for i in number1%}
+{% if i.anumber == h%}
+
+<li><a href="/bofa/delete1/{{i.id}}/" id="demo" >Patner_Details</a></li> |
+{% endif %}
+{% endfor %}
+    </ul>
+<l style="float:right;margin:20px;font-size:30px;color:green;"><l1 style="color:black;">Teller</l1>::{{request.user.username}}</l>
+<div ng-app = "mymodule">
+{% for i in number1%}
+{% if i.anumber == h%}
+
+    <h4>Customer Info</h4>
+Account Number::    <l2>{{i.anumber}}</l2><br>
+Customer Name::         <l2>{{i.name}}</l2><br>
+    Balance available::$<l2 style="font-size:30px">{{i.balance}}</l2><br>
+StartDte::<l2>{{i.date}}</l2><br>
+{% endif %}
+{% endfor %}
+    </div>
+
+
+
+
+
+</body>
+</html>

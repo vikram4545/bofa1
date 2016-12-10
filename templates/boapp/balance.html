@@ -1,0 +1,9 @@
+{% include 'base.html' %}
+<form method="post" action="">
+{{form.as_p}}{%csrf_token%}
+<input type="submit">
+</form>
+<p>
+ {{holder.deposite}}<br>
+ {{holder.withdraw}}<br>
+{{holder.balance}}</p>

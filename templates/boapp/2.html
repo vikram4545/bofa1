@@ -1,0 +1,88 @@
+{% include 'base.html' %}
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+
+    });
+    $("#fli").click(function(){
+        $("#pane").slideToggle("slow");
+
+    });
+});
+</script>
+
+<style>
+#panel, #flip ,#pane, #fli{
+    padding: 5px;
+    width:150px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+}
+
+#panel ,#pane{
+    padding: 50px;
+    width:50%;
+    display: none;
+}
+</style>
+
+</head>
+<body>
+LoggedIn as::{{request.user.username}}
+
+<div style="">
+AccountNumber({{holder.number}})<br>
+Name({{holder.name}})<br>
+AvailableBalance({{holder.balance}})<br><br><br>
+
+    <form method="post" action="/bofa/update/" id="f" name="contact-form" >
+
+
+    <div style="display:none;">
+    {{form.number}}
+    {{form.name}}
+    </div>
+        <div id="flip">Deposite</div>
+    <div id="panel">Deposite::{{form.deposite}}
+    <input  type="submit" value="Go">
+
+    </div><br><br><br>
+        <div id="fli">Withdraw</div>
+    <div id="pane">Withdraw::{{form.withdraw}}
+    <input  type="submit" value="Go">
+    </div>
+    {%csrf_token%}
+
+</form>
+
+
+
+</div><br><br>
+{% for i in number1%}
+{% if i.anumber == h%}
+
+<a href="/bofa/transactions/{{i.id}}/" id="demo" >Transactions</a>
+{% endif %}
+{% endfor %}
+{{employer.name1}}
+{% for i in number1%}
+{% if i.anumber == h%}
+
+<a href="/bofa/transactions/{{i.id}}/" id="demo" >Transactions</a> |
+{% endif %}
+{% endfor %}
+{{employer.name1}}
+
+{% for i in number1%}
+{% if i.anumber == h%}
+
+<a href="/bofa/delete1/{{i.id}}/" id="demo" >Patner_Details</a> |
+{% endif %}
+{% endfor %}
+{{employer.name1}}
+
+</body>
