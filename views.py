@@ -21,7 +21,7 @@ def index(request):
         if number.anumber in [ x.employeId for x in employer ]:
             number.anumber = 'BL'
             while len(number.anumber) <= 13:
-                y = random.randrange(0, 100)
+                y = random.randrange(0, 1000000)
                 number.anumber = number.anumber + str(y)
                 print(len(number.anumber))
                 if len(number.anumber) == 12:
